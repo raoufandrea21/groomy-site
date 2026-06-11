@@ -249,6 +249,7 @@ var FT_HTML={"en": "&copy; 2025 Groomy Pet Care LLC &middot; Villa 81, Al Aryam 
 var AR={"Veterinary Care": "الرعاية البيطرية", "Clinic": "العيادة", "Boarding & Hotel": "الإقامة والفندقة", "Hotel": "الفندق", "In-House Grooming": "التجميل الداخلي", "Grooming": "التجميل", "Van Grooming": "التجميل المتنقّل", "Van": "المتنقّل", "Pet Daycare": "الحضانة النهارية", "Daycare": "الحضانة", "Fitness & Memberships": "اللياقة والاشتراكات", "Gym": "النادي", "Licensed vets for consultations, vaccinations and diagnostics — medical-first, always.": "أطباء بيطريون مرخّصون للاستشارات والتطعيمات والتشخيص — الأولوية دائمًا للرعاية الطبية.", "Premium boarding continuing your pet's daily routine — meals, walks and genuine care.": "إقامة فاخرة تواصل روتين حيوانك اليومي — وجبات ونزهات ورعاية صادقة.", "Certified groomers and breed-specific cuts using 100% natural and organic shampoos only.": "مختصّون معتمدون وقصّات حسب السلالة باستخدام شامبو طبيعي وعضوي 100% فقط.", "Our grooming van comes to you — same professional standard, natural products, at your door.": "تأتيك عربة التجميل إلى باب منزلك — بنفس المعايير الاحترافية ومنتجات طبيعية.", "Supervised play, socialisation and rest in a dedicated space for happy, active pets.": "لعب تحت إشراف وتنشئة اجتماعية وراحة في مساحة مخصّصة لحيوانات سعيدة ونشيطة.", "A gym for both of you — rehab and physio for your pet, full fitness floor for you.": "نادٍ لكليكما — تأهيل وعلاج طبيعي لحيوانك، وصالة لياقة متكاملة لك.", "Pricing": "الأسعار", "Room Rates / Night": "أسعار الغرف / الليلة", "Packages / Session": "الباقات / الجلسة", "Daily Rates": "الأسعار اليومية", "Memberships": "الاشتراكات", "excl. VAT": "غير شامل ض.ق.م", "Dogs": "الكلاب", "Cats": "القطط", "Bubble / Haircut": "استحمام / قص", "Premium": "بريميوم", "Individual (1 person + 1 dog)": "فردي (شخص واحد + كلب واحد)", "Family Membership": "اشتراك عائلي", "Add-Ons": "الإضافات", "Consultation": "الاستشارة", "Dog Combo Vaccination": "تطعيم الكلاب المجمّع", "Kennel Cough Vaccine": "تطعيم السعال الكلابي", "Rabies Vaccine": "تطعيم داء الكلب", "Cat Trio Vaccination": "تطعيم القطط الثلاثي", "Mini Room": "غرفة ميني", "Standard Room": "غرفة ستاندرد", "Suite Room": "غرفة جناح", "Presidential": "الجناح الرئاسي", "Additional Dog": "كلب إضافي", "Standard": "ستاندرد", "Suite": "جناح", "Additional Cat": "قطة إضافية", "1 dog": "كلب واحد", "up to 2 dogs": "حتى كلبين", "up to 3 dogs": "حتى 3 كلاب", "up to 4 dogs": "حتى 4 كلاب", "2 cats": "قطتان", "up to 4 cats": "حتى 4 قطط", "Small Dog": "كلب صغير", "Medium Dog": "كلب متوسط", "Large Dog": "كلب كبير", "Cat": "قط", "Small Dog - Full Day": "كلب صغير - يوم كامل", "Medium Dog - Full Day": "كلب متوسط - يوم كامل", "Half Day": "نصف يوم", "any size, 4 hours": "أي حجم، 4 ساعات", "Day Pass": "تذكرة يومية", "Day Pass - Owner Only": "تذكرة يومية - للمالك فقط", "1 person + 1 dog": "شخص واحد + كلب واحد", "without dog": "بدون كلب", "Monthly": "شهري", "6-Month": "6 أشهر", "12-Month": "12 شهرًا", "2 adults + 1 dog": "بالغان + كلب واحد", "2 adults + 2 kids + 1 dog": "بالغان + طفلان + كلب واحد", "Additional Kid": "طفل إضافي", "approx 10 years": "حوالي 10 سنوات", "Villa 81, Al Aryam St, Khalifa City, Abu Dhabi": "فيلا 81، شارع العريم، مدينة خليفة، أبوظبي", "Mon - Fri  8am - 8pm": "الإثنين - الجمعة  8 ص - 8 م", "Weekends  9am - 7pm": "نهاية الأسبوع  9 ص - 7 م"};
 var LANG=(function(){try{return localStorage.getItem('glang')==='ar'?'ar':'en';}catch(e){return 'en';}})();
 function T(s){if(LANG!=='ar')return s;var k=(s==null?'':String(s));return AR[k]!=null?AR[k]:k;}
+function TF(o,f){var en=o?o[f]:'';if(LANG!=='ar')return en;var a=o?o[f+'_ar']:'';if(a!=null&&String(a).trim()!=='')return a;var k=(en==null?'':String(en));return AR[k]!=null?AR[k]:en;}
 function UIT(k){return (UI[k]?UI[k][LANG]:k);}
 function P(p){if(LANG!=='ar')return p;var s=String(p||'');return /AED/i.test(s)?(s.replace(/AED\s*/i,'').trim()+' \u062f.\u0625'):s;}
 function applyStatic(){
@@ -272,7 +273,7 @@ function renderTabs() {
   var h = "";
   for(var i=0;i<D.services.length;i++) {
     var s=D.services[i], cls="tab"+(i===0?" on":"");
-    h += "<button class=\""+cls+"\" data-id=\""+s.id+"\"><span>"+s.icon+"</span>"+xe(T(s.tag))+"</button>";
+    h += "<button class=\""+cls+"\" data-id=\""+s.id+"\"><span>"+s.icon+"</span>"+xe(TF(s,'tag'))+"</button>";
   }
   h += "<button class=\"tab\" data-id=\"gallery\"><span>&#x1F5BC;</span>"+UIT('nav_gallery')+"</button>";
   h += "<button class=\"tab\" data-id=\"contact\"><span>&#x1F4CD;</span>"+UIT('nav_contact')+"</button>";
@@ -293,15 +294,15 @@ function renderCards() {
     var rows="";
     s.rows.forEach(function(r) {
       if(r.g) {
-        rows += "<div class=\"grp\">"+xe(T(r.g))+"</div>";
+        rows += "<div class=\"grp\">"+xe(TF(r,'g'))+"</div>";
       } else {
-        rows += "<div class=\"row\"><div class=\"rl\">"+xe(T(r.l))+(r.s?"<span class=\"rs\">"+xe(T(r.s))+"</span>":"")+"</div><div class=\"rp\" dir=\"ltr\">"+xe(P(r.p))+"</div></div>";
+        rows += "<div class=\"row\"><div class=\"rl\">"+xe(TF(r,'l'))+(r.s?"<span class=\"rs\">"+xe(TF(r,'s'))+"</span>":"")+"</div><div class=\"rp\" dir=\"ltr\">"+xe(P(r.p))+"</div></div>";
       }
     });
     var fit = s.fit==="landscape"?"la":"po";
     h += "<div class=\"card\" id=\""+s.id+"\"><div class=\"cp "+fit+"\"><img src=\""+s.img+"\" alt=\""+xe(s.name)+"\"></div>"
-       + "<div class=\"cb\"><div class=\"ct\">"+xe(T(s.name))+"</div><div class=\"cd\">"+xe(T(s.desc))+"</div>"
-       + "<div class=\"pr\"><div class=\"ph\"><span class=\"pl\">"+xe(T(s.phead))+"</span><span class=\"pn\">"+xe(T(s.vnote))+"</span></div>"
+       + "<div class=\"cb\"><div class=\"ct\">"+xe(TF(s,'name'))+"</div><div class=\"cd\">"+xe(TF(s,'desc'))+"</div>"
+       + "<div class=\"pr\"><div class=\"ph\"><span class=\"pl\">"+xe(TF(s,'phead'))+"</span><span class=\"pn\">"+xe(TF(s,'vnote'))+"</span></div>"
        + rows+"</div></div></div>";
   });
   document.getElementById("cards").innerHTML = h;
@@ -317,10 +318,10 @@ function renderGallery() {
 
 function renderContact() {
   var c=D.contact;
-  document.getElementById("c-addr").innerHTML = xe(T(c.address)).replace(/, /g,"<br>");
+  document.getElementById("c-addr").innerHTML = xe(TF(c,'address')).replace(/, /g,"<br>");
   document.getElementById("c-phone").innerHTML = "<a href=\"tel:"+c.phone.replace(/[^0-9+]/g,"")+"\">" +xe(c.phone)+"</a>";
   document.getElementById("c-web").innerHTML = "<a href=\"https://"+c.website+"\" target=\"_blank\">"+xe(c.website)+"</a>";
-  document.getElementById("c-hrs").innerHTML = xe(T(c.h1))+"<br>"+xe(T(c.h2));
+  document.getElementById("c-hrs").innerHTML = xe(TF(c,'h1'))+"<br>"+xe(TF(c,'h2'));
   document.getElementById("c-wa").href = "https://wa.me/"+c.wa;
   document.getElementById("c-map").href = c.maps;
   document.getElementById("c-lt").href = c.linktree;
