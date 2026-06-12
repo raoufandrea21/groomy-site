@@ -146,6 +146,9 @@ body{font-family:Inter,sans-serif;background:var(--g);color:var(--t);overflow-x:
 /* ===== i18n / RTL ===== */
 .langtog{position:fixed;top:9px;right:10px;z-index:90;background:var(--n);color:#fff;border:1px solid rgba(94,230,227,.45);border-radius:100px;padding:7px 13px;font-size:12.5px;font-weight:800;font-family:Tajawal,Inter,sans-serif;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(0,43,73,.28);line-height:1}
 .langtog:hover{background:#013a5e}
+.langtog{transition:opacity .28s ease,transform .28s ease}
+.langtog.hide{opacity:0;transform:translateY(-14px);pointer-events:none}
+.tab svg.ti{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
 .langtog .gl{font-size:13px;line-height:1}
 html[dir=rtl] .langtog{right:auto;left:10px}
 html[lang=ar] body,html[lang=ar] input,html[lang=ar] textarea,html[lang=ar] button{font-family:Tajawal,Inter,sans-serif}
@@ -173,7 +176,7 @@ html[dir=rtl] .cgd{text-align:right}
 </head>
 <body>
 <button class="langtog" id="langTog" onclick="toggleLang()" aria-label="Switch language"><span class="gl">&#127760;</span><span id="langLbl">العربية</span></button>
-<svg style="display:none">
+<svg style="display:none"><symbol id="ico-tclinic" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/><path d="M3.6 12H8l1-2 2 5 2-4 1 1h4.4"/></symbol><symbol id="ico-thotel" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 9h16a3 3 0 0 1 3 3v8"/><path d="M2 16h19"/><path d="M6 9v3"/></symbol><symbol id="ico-tgroom" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88"/><path d="M14.47 14.48 20 20"/><path d="M8.12 8.12 12 12"/></symbol><symbol id="ico-tvan" viewBox="0 0 24 24"><path d="M3 6h10a1 1 0 0 1 1 1v9H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z"/><path d="M14 9h3.6l2.4 3v4h-6"/><circle cx="7" cy="17.5" r="1.9"/><circle cx="17" cy="17.5" r="1.9"/></symbol><symbol id="ico-tday" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol><symbol id="ico-tgym" viewBox="0 0 24 24"><path d="M4 10v4M7 7.5v9M17 7.5v9M20 10v4M7 12h10"/></symbol><symbol id="ico-tgal" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="m21 15-5-5L5 21"/></symbol><symbol id="ico-tcontact" viewBox="0 0 24 24"><path d="M20 10c0 4.4-8 12-8 12s-8-7.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
 <symbol id="ico-ig" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
 <symbol id="ico-tt" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.54V6.79a4.85 4.85 0 01-1.02-.1z"/></symbol>
 <symbol id="ico-fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
@@ -251,6 +254,8 @@ var LANG=(function(){try{return localStorage.getItem('glang')==='ar'?'ar':'en';}
 function T(s){if(LANG!=='ar')return s;var k=(s==null?'':String(s));return AR[k]!=null?AR[k]:k;}
 function TF(o,f){var en=o?o[f]:'';if(LANG!=='ar')return en;var a=o?o[f+'_ar']:'';if(a!=null&&String(a).trim()!=='')return a;var k=(en==null?'':String(en));return AR[k]!=null?AR[k]:en;}
 function UIT(k){return (UI[k]?UI[k][LANG]:k);}
+var TABICONS={clinic:"tclinic",hotel:"thotel",grooming:"tgroom",van:"tvan",daycare:"tday",gym:"tgym",gallery:"tgal",contact:"tcontact"};
+function tabIcon(id,emoji){var k=TABICONS[id];return k?'<svg class="ti"><use href="#ico-'+k+'"/></svg>':"<span>"+(emoji||"")+"</span>";}
 function P(p){if(LANG!=='ar')return p;var s=String(p||'');return /AED/i.test(s)?(s.replace(/AED\s*/i,'').trim()+' \u062f.\u0625'):s;}
 function applyStatic(){
   document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(UI[k])el.textContent=UI[k][LANG];});
@@ -261,7 +266,7 @@ function applyStatic(){
 function updateTogBtn(){var l=document.getElementById('langLbl');if(l)l.textContent=(LANG==='ar'?'English':'العربية');}
 function applyLangAttrs(){document.documentElement.lang=LANG;document.documentElement.dir=(LANG==='ar'?'rtl':'ltr');}
 function toggleLang(){LANG=(LANG==='ar'?'en':'ar');try{localStorage.setItem('glang',LANG);}catch(e){}applyLangAttrs();updateTogBtn();renderAll();}
-applyLangAttrs();updateTogBtn();
+applyLangAttrs();updateTogBtn();(function(){var ly=0;window.addEventListener('scroll',function(){var t=document.getElementById('langTog');if(!t)return;var y=window.pageYOffset||document.documentElement.scrollTop;if(y>90&&y>ly){t.classList.add('hide');}else{t.classList.remove('hide');}ly=y;},{passive:true});})();
 
 
 
@@ -273,10 +278,10 @@ function renderTabs() {
   var h = "";
   for(var i=0;i<D.services.length;i++) {
     var s=D.services[i], cls="tab"+(i===0?" on":"");
-    h += "<button class=\""+cls+"\" data-id=\""+s.id+"\"><span>"+s.icon+"</span>"+xe(TF(s,'tag'))+"</button>";
+    h += "<button class=\""+cls+"\" data-id=\""+s.id+"\">"+tabIcon(s.id,s.icon)+xe(TF(s,'tag'))+"</button>";
   }
-  h += "<button class=\"tab\" data-id=\"gallery\"><span>&#x1F5BC;</span>"+UIT('nav_gallery')+"</button>";
-  h += "<button class=\"tab\" data-id=\"contact\"><span>&#x1F4CD;</span>"+UIT('nav_contact')+"</button>";
+  h += "<button class=\"tab\" data-id=\"gallery\">"+tabIcon('gallery','')+UIT('nav_gallery')+"</button>";
+  h += "<button class=\"tab\" data-id=\"contact\">"+tabIcon('contact','')+UIT('nav_contact')+"</button>";
   document.getElementById("tabs").innerHTML = h;
   document.querySelectorAll(".tab").forEach(function(btn) {
     btn.addEventListener("click", function() { goTo(this.getAttribute("data-id")); });
