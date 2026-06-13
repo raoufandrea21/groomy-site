@@ -149,6 +149,12 @@ body{font-family:Inter,sans-serif;background:var(--g);color:var(--t);overflow-x:
 .langtog{transition:opacity .28s ease,transform .28s ease}
 .langtog.hide{opacity:0;transform:translateY(-14px);pointer-events:none}
 .tab svg.ti{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.pwawrap{display:none;text-align:center;padding:22px 16px 26px;background:#001525}
+.pwabtn{display:inline-flex;align-items:center;gap:9px;background:var(--a);color:var(--n);border:none;border-radius:100px;padding:13px 22px;font-family:Inter,sans-serif;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 6px 20px rgba(94,230,227,.22)}
+.pwabtn:active{transform:translateY(1px)}
+.pwabtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pwahint{margin:12px auto 0;font-size:12.5px;color:rgba(255,255,255,.72);line-height:1.65;max-width:300px}
+html[lang=ar] .pwabtn{font-family:Tajawal,Inter,sans-serif}
 .langtog .gl{font-size:13px;line-height:1}
 html[dir=rtl] .langtog{right:auto;left:10px}
 html[lang=ar] body,html[lang=ar] input,html[lang=ar] textarea,html[lang=ar] button{font-family:Tajawal,Inter,sans-serif}
@@ -159,7 +165,12 @@ html[dir=rtl] .cgd{text-align:right}
 </style>
 <meta name="description" content="Abu Dhabi's complete pet care destination — vet care, grooming, boarding, rehab, gym &amp; more. One team, every stage of care.">
 <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#002b49">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Groomy">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://groomypetcare.vercel.app/">
 <meta property="og:title" content="Groomy — Abu Dhabi's Complete Pet Care">
@@ -222,6 +233,7 @@ html[dir=rtl] .cgd{text-align:right}
 <a class="soc" id="c-ww" target="_blank"><svg><use href="#ico-web"/></svg></a>
 </div>
 </div></div>
+<div id="pwaWrap" class="pwawrap"><button id="pwaBtn" class="pwabtn"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/></svg><span data-i18n="pwa_add">Add to Home Screen</span></button><div id="pwaHint" class="pwahint" data-i18n="pwa_ios" style="display:none">Tap the Share button, then ‘Add to Home Screen’.</div></div>
 <div class="ft" id="heroFt">&copy; 2025 Groomy Pet Care LLC &middot; Villa 81, Al Aryam Street, Khalifa City, Abu Dhabi<br><a href="https://groomypet.com">groomypet.com</a></div>
 <div class="lb" id="lb"><button class="lbx" onclick="closeLb()">&#x2715;</button><button class="lbnav lbprev" onclick="event.stopPropagation();navLb(-1)">&#8249;</button><img id="lbimg" src="" alt=""><button class="lbnav lbnext" onclick="event.stopPropagation();navLb(1)">&#8250;</button><div class="lbct" id="lbct"></div></div>
 <div class="abar" id="abar">
@@ -246,7 +258,7 @@ var ORIG = JSON.parse(document.getElementById("gdata").textContent);
 var D = JSON.parse(JSON.stringify(ORIG));
 
 /* ===== i18n layer ===== */
-var UI={"hero_badge": {"en": "Abu Dhabi's Complete Pet Care", "ar": "وجهة أبوظبي المتكاملة للعناية بالحيوانات الأليفة"}, "hero_sub": {"en": "Vet care, grooming, boarding, rehab & gym — one team, every stage of care.", "ar": "رعاية بيطرية، تجميل، إقامة، تأهيل ونادٍ — فريق واحد في كل مراحل العناية."}, "gal_title": {"en": "Inside Groomy", "ar": "داخل Groomy"}, "gal_sub": {"en": "Villa 81, Khalifa City, Abu Dhabi", "ar": "فيلا 81، مدينة خليفة، أبوظبي"}, "lbl_addr": {"en": "Address", "ar": "العنوان"}, "lbl_phone": {"en": "Phone", "ar": "الهاتف"}, "lbl_web": {"en": "Website", "ar": "الموقع الإلكتروني"}, "lbl_hours": {"en": "Hours", "ar": "ساعات العمل"}, "btn_wa": {"en": "WhatsApp", "ar": "واتساب"}, "btn_dir": {"en": "Directions", "ar": "الاتجاهات"}, "btn_hub": {"en": "The Groomy Hub — All Our Links", "ar": "مركز Groomy — جميع روابطنا"}, "nav_gallery": {"en": "Gallery", "ar": "المعرض"}, "nav_contact": {"en": "Contact", "ar": "التواصل"}};
+var UI={"hero_badge": {"en": "Abu Dhabi's Complete Pet Care", "ar": "وجهة أبوظبي المتكاملة للعناية بالحيوانات الأليفة"}, "hero_sub": {"en": "Vet care, grooming, boarding, rehab & gym — one team, every stage of care.", "ar": "رعاية بيطرية، تجميل، إقامة، تأهيل ونادٍ — فريق واحد في كل مراحل العناية."}, "gal_title": {"en": "Inside Groomy", "ar": "داخل Groomy"}, "gal_sub": {"en": "Villa 81, Khalifa City, Abu Dhabi", "ar": "فيلا 81، مدينة خليفة، أبوظبي"}, "lbl_addr": {"en": "Address", "ar": "العنوان"}, "lbl_phone": {"en": "Phone", "ar": "الهاتف"}, "lbl_web": {"en": "Website", "ar": "الموقع الإلكتروني"}, "lbl_hours": {"en": "Hours", "ar": "ساعات العمل"}, "btn_wa": {"en": "WhatsApp", "ar": "واتساب"}, "btn_dir": {"en": "Directions", "ar": "الاتجاهات"}, "btn_hub": {"en": "The Groomy Hub — All Our Links", "ar": "مركز Groomy — جميع روابطنا"}, "nav_gallery": {"en": "Gallery", "ar": "المعرض"}, "nav_contact": {"en": "Contact", "ar": "التواصل"}, "pwa_add": {"en": "Add to Home Screen", "ar": "أضِف إلى الشاشة الرئيسية"}, "pwa_ios": {"en": "Tap the Share button, then ‘Add to Home Screen’.", "ar": "اضغط زر المشاركة ثم اختر ‘أضف إلى الشاشة الرئيسية’."}};
 var HERO_H1={"en": "Every service your<br>pet will ever <span>need.</span>", "ar": "كل خدمة قد <span>يحتاجها</span><br>حيوانك الأليف."};
 var FT_HTML={"en": "&copy; 2025 Groomy Pet Care LLC &middot; Villa 81, Al Aryam Street, Khalifa City, Abu Dhabi<br><a href=\"https://groomypet.com\">groomypet.com</a>", "ar": "&copy; 2025 Groomy Pet Care LLC &middot; فيلا 81، شارع العريم، مدينة خليفة، أبوظبي<br><a href=\"https://groomypet.com\">groomypet.com</a>"};
 var AR={"Veterinary Care": "الرعاية البيطرية", "Clinic": "العيادة", "Boarding & Hotel": "الإقامة والفندقة", "Hotel": "الفندق", "In-House Grooming": "التجميل الداخلي", "Grooming": "التجميل", "Van Grooming": "التجميل المتنقّل", "Van": "المتنقّل", "Pet Daycare": "الحضانة النهارية", "Daycare": "الحضانة", "Fitness & Memberships": "اللياقة والاشتراكات", "Gym": "النادي", "Licensed vets for consultations, vaccinations and diagnostics — medical-first, always.": "أطباء بيطريون مرخّصون للاستشارات والتطعيمات والتشخيص — الأولوية دائمًا للرعاية الطبية.", "Premium boarding continuing your pet's daily routine — meals, walks and genuine care.": "إقامة فاخرة تواصل روتين حيوانك اليومي — وجبات ونزهات ورعاية صادقة.", "Certified groomers and breed-specific cuts using 100% natural and organic shampoos only.": "مختصّون معتمدون وقصّات حسب السلالة باستخدام شامبو طبيعي وعضوي 100% فقط.", "Our grooming van comes to you — same professional standard, natural products, at your door.": "تأتيك عربة التجميل إلى باب منزلك — بنفس المعايير الاحترافية ومنتجات طبيعية.", "Supervised play, socialisation and rest in a dedicated space for happy, active pets.": "لعب تحت إشراف وتنشئة اجتماعية وراحة في مساحة مخصّصة لحيوانات سعيدة ونشيطة.", "A gym for both of you — rehab and physio for your pet, full fitness floor for you.": "نادٍ لكليكما — تأهيل وعلاج طبيعي لحيوانك، وصالة لياقة متكاملة لك.", "Pricing": "الأسعار", "Room Rates / Night": "أسعار الغرف / الليلة", "Packages / Session": "الباقات / الجلسة", "Daily Rates": "الأسعار اليومية", "Memberships": "الاشتراكات", "excl. VAT": "غير شامل ض.ق.م", "Dogs": "الكلاب", "Cats": "القطط", "Bubble / Haircut": "استحمام / قص", "Premium": "بريميوم", "Individual (1 person + 1 dog)": "فردي (شخص واحد + كلب واحد)", "Family Membership": "اشتراك عائلي", "Add-Ons": "الإضافات", "Consultation": "الاستشارة", "Dog Combo Vaccination": "تطعيم الكلاب المجمّع", "Kennel Cough Vaccine": "تطعيم السعال الكلابي", "Rabies Vaccine": "تطعيم داء الكلب", "Cat Trio Vaccination": "تطعيم القطط الثلاثي", "Mini Room": "غرفة ميني", "Standard Room": "غرفة ستاندرد", "Suite Room": "غرفة جناح", "Presidential": "الجناح الرئاسي", "Additional Dog": "كلب إضافي", "Standard": "ستاندرد", "Suite": "جناح", "Additional Cat": "قطة إضافية", "1 dog": "كلب واحد", "up to 2 dogs": "حتى كلبين", "up to 3 dogs": "حتى 3 كلاب", "up to 4 dogs": "حتى 4 كلاب", "2 cats": "قطتان", "up to 4 cats": "حتى 4 قطط", "Small Dog": "كلب صغير", "Medium Dog": "كلب متوسط", "Large Dog": "كلب كبير", "Cat": "قط", "Small Dog - Full Day": "كلب صغير - يوم كامل", "Medium Dog - Full Day": "كلب متوسط - يوم كامل", "Half Day": "نصف يوم", "any size, 4 hours": "أي حجم، 4 ساعات", "Day Pass": "تذكرة يومية", "Day Pass - Owner Only": "تذكرة يومية - للمالك فقط", "1 person + 1 dog": "شخص واحد + كلب واحد", "without dog": "بدون كلب", "Monthly": "شهري", "6-Month": "6 أشهر", "12-Month": "12 شهرًا", "2 adults + 1 dog": "بالغان + كلب واحد", "2 adults + 2 kids + 1 dog": "بالغان + طفلان + كلب واحد", "Additional Kid": "طفل إضافي", "approx 10 years": "حوالي 10 سنوات", "Villa 81, Al Aryam St, Khalifa City, Abu Dhabi": "فيلا 81، شارع العريم، مدينة خليفة، أبوظبي", "Mon - Fri  8am - 8pm": "الإثنين - الجمعة  8 ص - 8 م", "Weekends  9am - 7pm": "نهاية الأسبوع  9 ص - 7 م"};
@@ -506,5 +518,23 @@ renderAll();
 
 </script>
 <!-- build 20260611-1753 bilingual -->
+<script>
+(function(){
+  if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}
+  var wrap=document.getElementById('pwaWrap'),btn=document.getElementById('pwaBtn'),hint=document.getElementById('pwaHint'),dp=null;
+  var standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+  var isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream;
+  var forcePrev=/previewpwa/.test(location.search);
+  function show(){if(wrap)wrap.style.display='block';}
+  if(standalone&&!forcePrev){return;}
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;show();});
+  if(isIOS||forcePrev){show();}
+  if(btn){btn.addEventListener('click',function(){
+    if(dp){dp.prompt();dp.userChoice.then(function(c){if(c&&c.outcome==='accepted'&&wrap){wrap.style.display='none';}dp=null;});}
+    else{if(hint){hint.style.display=(hint.style.display==='block'?'none':'block');}}
+  });}
+  window.addEventListener('appinstalled',function(){if(wrap){wrap.style.display='none';}});
+})();
+</script>
 </body>
 </html>
