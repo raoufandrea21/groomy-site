@@ -22,10 +22,10 @@ body{font-family:Inter,sans-serif;background:var(--g);color:var(--t);overflow-x:
 .hero h1{font-size:clamp(24px,6.5vw,34px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:10px;letter-spacing:-.4px}
 .hero h1 span{color:var(--a)}
 .hero p{font-size:13px;color:rgba(255,255,255,.5);max-width:280px;line-height:1.65}
-.nav{position:sticky;top:0;z-index:80;background:#fff;border-bottom:1px solid var(--b);overflow-x:auto;scrollbar-width:none;box-shadow:0 2px 12px rgba(0,43,73,.07)}
+.nav{position:sticky;top:0;z-index:80;background:#fff;border-bottom:1px solid var(--b);overflow-x:hidden;scrollbar-width:none;box-shadow:0 2px 12px rgba(0,43,73,.07)}
 .nav::-webkit-scrollbar{display:none}
-.nav-i{display:flex;padding:0 8px;min-width:max-content}
-.tab{display:flex;flex-direction:column;align-items:center;gap:3px;padding:11px 14px 9px;border:none;background:transparent;font-family:Inter,sans-serif;font-size:11px;font-weight:600;color:var(--m);cursor:pointer;white-space:nowrap;border-bottom:2.5px solid transparent;transition:color .18s,border-color .18s}
+.nav-i{display:flex;padding:0 2px;width:100%;min-width:0}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 2px 8px;border:none;background:transparent;font-family:Inter,sans-serif;font-size:9.5px;font-weight:600;flex:1 1 0;min-width:0;white-space:nowrap;color:var(--m);cursor:pointer;white-space:nowrap;border-bottom:2.5px solid transparent;transition:color .18s,border-color .18s}
 .tab span{font-size:16px;line-height:1}
 .tab.on{color:var(--n);border-bottom-color:var(--a);font-weight:700}
 .card{margin:10px 10px 0;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(0,43,73,.07);scroll-margin-top:56px}
@@ -148,7 +148,7 @@ body{font-family:Inter,sans-serif;background:var(--g);color:var(--t);overflow-x:
 .langtog:hover{background:#013a5e}
 .langtog{transition:opacity .28s ease,transform .28s ease}
 .langtog.hide{opacity:0;transform:translateY(-14px);pointer-events:none}
-.tab svg.ti{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.tab svg.ti{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
 .pwawrap{display:none;text-align:center;padding:22px 16px 26px;background:#001525}
 .pwabtn{display:inline-flex;align-items:center;gap:9px;background:var(--a);color:var(--n);border:none;border-radius:100px;padding:13px 22px;font-family:Inter,sans-serif;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 6px 20px rgba(94,230,227,.22)}
 .pwabtn:active{transform:translateY(1px)}
