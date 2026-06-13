@@ -1,6 +1,7 @@
-var C='groomy-v1';
+var C='groomy-v2';
 var ASSETS=['/','/index.html','/favicon.png','/icon-192.png','/icon-512.png','/apple-touch-icon.png','/manifest.webmanifest'];
-self.addEventListener('install',function(e){e.waitUntil(caches.open(C).then(function(c){return c.addAll(ASSETS);}).then(function(){return self.skipWaiting();}));});
+/* Cache each asset individually and ignore failures, so one missing file can never break SW install (required for Add to Home on Android). */
+self.addEventListener('install',function(e){e.waitUntil(caches.open(C).then(function(c){return Promise.all(ASSETS.map(function(a){return c.add(a).catch(function(){});}));}).then(function(){return self.skipWaiting();}));});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.map(function(k){if(k!==C)return caches.delete(k);}));}).then(function(){return self.clients.claim();}));});
 self.addEventListener('fetch',function(e){
   var r=e.request; if(r.method!=='GET'){return;}
